@@ -9,6 +9,7 @@
 namespace ElementifyBlocks;
 
 use ElementifyBlocks\Traits\Singleton;
+use ElementifyBlocks\Admin\Menu;
 
 /**
  * Plugin
@@ -28,6 +29,8 @@ final class Plugin {
 
 		$this->define_constants();
 		$this->set_locale();
+
+        add_action( 'plugins_loaded', [ $this, 'setup_classes' ] );
 	}
 
 	/**
@@ -73,6 +76,8 @@ final class Plugin {
         $this->define( 'ELEMENTIFY_BLOCKS_PATH', untrailingslashit( plugin_dir_path( ELEMENTIFY_BLOCKS_FILE ) ) );
         $this->define( 'ELEMENTIFY_BLOCKS_URL', untrailingslashit( plugin_dir_url( ELEMENTIFY_BLOCKS_FILE ) ) );
         $this->define( 'ELEMENTIFY_BLOCKS_BASENAME', plugin_basename( ELEMENTIFY_BLOCKS_FILE ) );
+        $this->define( 'ELEMENTIFY_BLOCKS_SETTINGS', 'elementfy_blocks_setting');
+        $this->define( 'ELEMENTIFY_BLOCKS_SUPPORT_SETTINGS', 'elementify_blocks_support_settings' );
     }
 
 	/**
@@ -93,4 +98,15 @@ final class Plugin {
     public function load_textdomain() {
         load_plugin_textdomain( 'elementify-blocks', false, dirname( ELEMENTIFY_BLOCKS_BASENAME ) . '/languages' );
     }
+
+    /**
+	 * Include required classes.
+	 */
+	public function setup_classes() {
+
+		if ( is_admin() ) {
+			/* Setup Menu */
+			Menu::get_instance();
+		}
+	}
 }

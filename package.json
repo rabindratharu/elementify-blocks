@@ -40,7 +40,7 @@
     "@wordpress/element": "^4.3.0",
     "@wordpress/eslint-plugin": "^11.1.0",
     "@wordpress/hooks": "^3.5.0",
-    "@wordpress/i18n": "^4.5.0",
+    "@wordpress/i18n": "^4.56.0",
     "@wordpress/icons": "^8.1.0",
     "@wordpress/server-side-render": "^3.3.0",
     "babel-loader": "^8.2.4",
@@ -56,19 +56,19 @@
     "file-loader": "^6.2.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.6.0",
+    "node-sass": "^7.0.1",
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
     "precss": "^4.0.0",
     "sass": "^1.74.1",
-    "tailwindcss": "^3.4.3",
-    "terser-webpack-plugin": "^5.3.10",
-    "node-sass": "^7.0.1",
     "sass-loader": "^12.6.0",
     "sass-mq": "^6.0.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.6.1",
     "stylelint-config-wordpress": "^17.0.0",
     "stylelint-webpack-plugin": "^3.2.0",
+    "tailwindcss": "^3.4.3",
+    "terser-webpack-plugin": "^5.3.10",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.71.0",
     "webpack-cli": "^4.9.2"
@@ -85,5 +85,12 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "@headlessui/react": "^1.7.19",
+    "@wordpress/api-fetch": "^6.53.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^9.1.1",
+    "react-router-dom": "^6.23.0"
+  }
 }
