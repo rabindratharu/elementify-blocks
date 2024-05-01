@@ -10,10 +10,10 @@ function SupportForm() {
 		}
 
 		formData.append( 'action', 'wp_bess_update_settings' );
-		formData.append( 'security', elementify_blocks_settings.update_nonce );
+		formData.append( 'security', wp_bess_settings.update_nonce );
 
 		apiFetch( {
-			url: elementify_blocks_settings.ajax_url,
+			url: wp_bess_settings.ajax_url,
 			method: 'POST',
 			body: formData,
 		} ).then( () => {
@@ -32,12 +32,12 @@ function SupportForm() {
 				method="POST"
 				onSubmit={ supportFormSubmit }
 			>
-				<div className="elementify-blocks-supportform sm:overflow-hidden">
+				<div className="wp-bess-supportform sm:overflow-hidden">
 					<div className="px-4 py-5 bg-white space-y-6 sm:p-6">
 
 						<div>
 							<label htmlFor="name" className="block text-sm font-medium text-gray-700">
-								{ __( 'Name', 'elementify-blocks' ) }
+								{ __( 'Name', 'wp-bess' ) }
 							</label>
 							<div className="mt-1">
 								<input
@@ -45,14 +45,14 @@ function SupportForm() {
 									name="name"
 									id="name"
 									className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2"
-									placeholder={ elementify_blocks_settings.wp_bess_support_settings.name }
+									placeholder={ wp_bess_settings.wp_bess_support_settings.name }
 								/>
 							</div>
 						</div>
 
 						<div>
 							<label htmlFor="name" className="block text-sm font-medium text-gray-700">
-								{ __( 'Email', 'elementify-blocks' ) }
+								{ __( 'Email', 'wp-bess' ) }
 							</label>
 							<div className="mt-1">
 								<input
@@ -60,14 +60,14 @@ function SupportForm() {
 									name="name"
 									id="name"
 									className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2"
-									placeholder={ elementify_blocks_settings.wp_bess_support_settings.email }
+									placeholder={ wp_bess_settings.wp_bess_support_settings.email }
 								/>
 							</div>
 						</div>
 
 						<div>
 							<label htmlFor="subject" className="block text-sm font-medium text-gray-700">
-								{ __( 'Subject', 'elementify-blocks' ) }
+								{ __( 'Subject', 'wp-bess' ) }
 							</label>
 							<div className="mt-1">
 								<input
@@ -82,7 +82,7 @@ function SupportForm() {
 
 						<div>
 							<label htmlFor="about" className="block text-sm font-medium text-gray-700">
-								{ __( 'Description', 'elementify-blocks' ) }
+								{ __( 'Description', 'wp-bess' ) }
 							</label>
 							<div className="mt-1">
 								<textarea

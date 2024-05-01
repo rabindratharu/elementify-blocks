@@ -1,12 +1,12 @@
 <?php
 
-namespace ElementifyBlocks\Traits;
+namespace WP_BESS\Traits;
 
-trait Singleton {
+trait SingleTone {
 	/**
 	 * Holds the plugin instance.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 * @access private
 	 * @static
 	 *
@@ -16,7 +16,7 @@ trait Singleton {
 	/**
 	 * Sets up a single instance of the plugin.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 * @access public
 	 * @var mixed $args
 	 *

@@ -5,24 +5,24 @@ import classNames from '../Helper';
 
 export default function EnableTransform() {
 	const [ enable, setEnable ] = useState(
-		elementify_blocks_settings.enable_transform
+		wp_bess_settings.wp_bess_setting.enable_transform
 	);
 	return (
 		<div className="bg-white px-4 py-5 border-b border-r border-gray-200 sm:px-6">
 			<div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<div className="ml-4 mt-4">
 					<h3 className="text-lg leading-6 font-medium text-gray-900">
-						{ __( 'Enable Transforms', 'elementify-blocks' ) }
+						{ __( 'Enable Transforms', 'wp-bess' ) }
 					</h3>
 					<p className="mt-1 text-sm text-gray-500">
-						{ __( 'Enable Transforms block related options.', 'elementify-blocks' ) }
+						{ __( 'Enable Transforms block related options.', 'wp-bess' ) }
 					</p>
 				</div>
 				<div className="ml-4 mt-4 flex-shrink-0">
 					<Switch
 						checked={ enable }
 						value={ enable }
-						name="elementify_blocks_setting[enable_transform]"
+						name="wp_bess_setting[enable_transform]"
 						onChange={ setEnable }
 						className={ classNames(
 							enable ? 'bg-wpcolor' : 'bg-gray-200',

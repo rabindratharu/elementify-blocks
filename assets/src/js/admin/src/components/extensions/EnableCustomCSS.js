@@ -5,17 +5,17 @@ import classNames from '../Helper';
 
 export default function EnableCustomCSS() {
 	const [ enable, setEnable ] = useState(
-		elementify_blocks_settings.enable_custom_css
+		wp_bess_settings.wp_bess_setting.enable_custom_css
 	);
 	return (
 		<div className="bg-white px-4 py-5 sm:px-6">
 			<div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<div className="ml-4 mt-4">
 					<h3 className="text-lg leading-6 font-medium text-gray-900">
-						{ __( 'Enable Custom CSS', 'elementify-blocks' ) }
+						{ __( 'Enable Custom CSS', 'wp-bess' ) }
 					</h3>
 					<p className="mt-1 text-sm text-gray-500">
-						{ __( 'Enable Custom CSS block specific.', 'elementify-blocks' ) }
+						{ __( 'Enable Custom CSS block specific.', 'wp-bess' ) }
 					</p>
 				</div>
 				<div className="ml-4 mt-4 flex-shrink-0">

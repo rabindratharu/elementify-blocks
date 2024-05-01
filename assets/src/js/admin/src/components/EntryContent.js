@@ -17,11 +17,11 @@ function EntryContent() {
 			formData.append( e.target[ i ].name, e.target[ i ].value );
 		}
 
-		formData.append( 'action', 'elementify_blocks_update_settings' );
-		formData.append( 'security', elementify_blocks_settings.update_nonce );
+		formData.append( 'action', 'wp_bess_update_settings' );
+		formData.append( 'security', wp_bess_settings.update_nonce );
 
 		apiFetch( {
-			url: elementify_blocks_settings.ajax_url,
+			url: wp_bess_settings.ajax_url,
 			method: 'POST',
 			body: formData,
 		} ).then( () => {
@@ -38,7 +38,7 @@ function EntryContent() {
 	const path = query.get( 'path' );
 
 	return (
-		( 'elementify_blocks_settings' === page ) &&
+		( 'wp_bess_settings' === page ) &&
 			<>
 				<form
 					className="wpBlockSettings"

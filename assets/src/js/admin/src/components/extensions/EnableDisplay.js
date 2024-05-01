@@ -5,24 +5,24 @@ import classNames from '../Helper';
 
 export default function EnableDisplay() {
 	const [ enable, setEnable ] = useState(
-		elementify_blocks_settings.enable_display
+		wp_bess_settings.wp_bess_setting.enable_display
 	);
 	return (
 		<div className="bg-white px-4 py-5 border-r sm:px-6">
 			<div className="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<div className="ml-4 mt-4">
 					<h3 className="text-lg leading-6 font-medium text-gray-900">
-						{ __( 'Enable Display', 'elementify-blocks' ) }
+						{ __( 'Enable Display', 'wp-bess' ) }
 					</h3>
 					<p className="mt-1 text-sm text-gray-500">
-						{ __( 'Enable Display related block options.', 'elementify-blocks' ) }
+						{ __( 'Enable Display related block options.', 'wp-bess' ) }
 					</p>
 				</div>
 				<div className="ml-4 mt-4 flex-shrink-0">
 					<Switch
 						checked={ enable }
 						value={ enable }
-						name="elementify_blocks_setting[enable_display]"
+						name="wp_bess_setting[enable_display]"
 						onChange={ setEnable }
 						className={ classNames(
 							enable ? 'bg-wpcolor' : 'bg-gray-200',

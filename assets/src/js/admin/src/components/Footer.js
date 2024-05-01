@@ -17,7 +17,7 @@ function Footer( props ) {
 		<div className="fixed bottom-0 right-0 left-0 bg-white border-b ml-[160px] px-2 py-2 border-t border-gray-200 sm:px-6 z-10">
 			<div className="flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<p className="mt-1 text-sm text-gray-500">
-					{ __( 'Thank you for using WP Block Essentials.', 'elementify-blocks' ) }
+					{ __( 'Thank you for using WP Block Essentials.', 'wp-bess' ) }
 				</p>
 				<div className="relative">
 					<div className="relative container flex justify-center items-center">
@@ -29,12 +29,12 @@ function Footer( props ) {
 							className="w-32 justify-center inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-wpcolor"
 						>
 							{ '' === status && (
-								<>{ __( 'Save', 'elementify-blocks' ) }</>
+								<>{ __( 'Save', 'wp-bess' ) }</>
 							) }
 							{ 'processing' === status && (
 								<>
 									<span>{ Icons.spinner }</span>
-									{ __( 'Saving', 'elementify-blocks' ) }
+									{ __( 'Saving', 'wp-bess' ) }
 								</>
 							) }
 							{ 'saved' === status && (
@@ -42,7 +42,7 @@ function Footer( props ) {
 									<span className="pr-2">
 										{ Icons[ 'checked-circle' ] }
 									</span>
-									{ __( 'Saved', 'elementify-blocks' ) }
+									{ __( 'Saved', 'wp-bess' ) }
 								</>
 							) }
 						</button>

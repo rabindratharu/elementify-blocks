@@ -4571,10 +4571,10 @@ function EntryContent() {
     for (var i = 0; i < e.target.length; i++) {
       formData.append(e.target[i].name, e.target[i].value);
     }
-    formData.append('action', 'elementify_blocks_update_settings');
-    formData.append('security', elementify_blocks_settings.update_nonce);
+    formData.append('action', 'wp_bess_update_settings');
+    formData.append('security', wp_bess_settings.update_nonce);
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
-      url: elementify_blocks_settings.ajax_url,
+      url: wp_bess_settings.ajax_url,
       method: 'POST',
       body: formData
     }).then(function () {
@@ -4588,7 +4588,7 @@ function EntryContent() {
   var query = new URLSearchParams((0,react_router_dom__WEBPACK_IMPORTED_MODULE_7__.useLocation)().search);
   var page = query.get('page');
   var path = query.get('path');
-  return 'elementify_blocks_settings' === page && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("form", {
+  return 'wp_bess_settings' === page && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("form", {
     className: "wpBlockSettings",
     id: "wpBlockSettings",
     method: "post",
@@ -4650,7 +4650,7 @@ function Footer(props) {
     className: "flex justify-between items-center flex-wrap sm:flex-nowrap"
   }, /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Thank you for using WP Block Essentials.', 'elementify-blocks')), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Thank you for using WP Block Essentials.', 'wp-bess')), /*#__PURE__*/React.createElement("div", {
     className: "relative"
   }, /*#__PURE__*/React.createElement("div", {
     className: "relative container flex justify-center items-center"
@@ -4660,9 +4660,9 @@ function Footer(props) {
       processing();
     },
     className: "w-32 justify-center inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-wpcolor"
-  }, '' === status && /*#__PURE__*/React.createElement(React.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Save', 'elementify-blocks')), 'processing' === status && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].spinner), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Saving', 'elementify-blocks')), 'saved' === status && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
+  }, '' === status && /*#__PURE__*/React.createElement(React.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Save', 'wp-bess')), 'processing' === status && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", null, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].spinner), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Saving', 'wp-bess')), 'saved' === status && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("span", {
     className: "pr-2"
-  }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"]['checked-circle']), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Saved', 'elementify-blocks')))))));
+  }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"]['checked-circle']), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Saved', 'wp-bess')))))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
 
@@ -4708,12 +4708,12 @@ function Header() {
     tab = _useState2[0],
     setTab = _useState2[1];
   var navigation = [{
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'elementify-blocks'),
-    slug: 'elementify_blocks_settings',
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Settings', 'wp-bess'),
+    slug: 'wp_bess_settings',
     path: ''
   }, {
-    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Support', 'elementify-blocks'),
-    slug: 'elementify_blocks_settings',
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Support', 'wp-bess'),
+    slug: 'wp_bess_settings',
     path: 'support'
   }];
   var query = new URLSearchParams((_useLocation = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useLocation)()) === null || _useLocation === void 0 ? void 0 : _useLocation.search);
@@ -4729,7 +4729,7 @@ function Header() {
     className: "inline-block align-middle mr-2"
   }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].wordpress), /*#__PURE__*/React.createElement("span", {
     className: "align-middle"
-  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Block Essentials', 'elementify-blocks'), " ")), /*#__PURE__*/React.createElement("div", {
+  }, " ", (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Block Essentials', 'wp-bess'), " ")), /*#__PURE__*/React.createElement("div", {
     className: "py-2 px-2 sm:px-6 lg:py-2 lg:px-0 lg:col-span-3"
   }, /*#__PURE__*/React.createElement("nav", {
     className: "flex"
@@ -4740,37 +4740,37 @@ function Header() {
         pathname: 'admin.php',
         search: "?page=".concat(menu.slug).concat('' !== menu.path ? '&path=' + menu.path : '')
       },
-      className: classNames(activePage === menu.slug && activePath === menu.path ? 'bg-gray-50 text-wpcolor fill-wpcolor elementify-blocks-menu--active' : 'text-gray-900 fill-gray-900 hover:text-gray-900 hover:bg-gray-50 elementify-blocks-menu', 'group cursor-pointer rounded-md px-3 py-2 flex items-center text-sm font-medium mx-1')
+      className: classNames(activePage === menu.slug && activePath === menu.path ? 'bg-gray-50 text-wpcolor fill-wpcolor wp-bess-menu--active' : 'text-gray-900 fill-gray-900 hover:text-gray-900 hover:bg-gray-50 wp-bess-menu', 'group cursor-pointer rounded-md px-3 py-2 flex items-center text-sm font-medium mx-1')
     }, menu.name);
   }))), /*#__PURE__*/React.createElement("div", {
     className: "relative flex rounded-md shadow-sm"
   }, /*#__PURE__*/React.createElement("a", {
     href: "https://github.com/imnavanath",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('GitHub Profile', 'elementify-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('GitHub Profile', 'wp-bess'),
     target: "_blank",
     id: "github",
     className: "cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none"
   }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].github), /*#__PURE__*/React.createElement("a", {
     href: "https://www.linkedin.com/in/navanath-bhosale",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Connect via LinkedIn', 'elementify-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Connect via LinkedIn', 'wp-bess'),
     target: "_blank",
     id: "linkedin",
     className: "cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none"
   }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].linkedin), /*#__PURE__*/React.createElement("a", {
     href: "mailto:navanath.bhosale95@gmail.com",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Email me', 'elementify-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Email me', 'wp-bess'),
     target: "_blank",
     id: "email",
     className: "cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none"
   }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].email), /*#__PURE__*/React.createElement("a", {
     href: "https://www.facebook.com/navnath.bhosale.3/",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Connect via Facebook', 'elementify-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Connect via Facebook', 'wp-bess'),
     target: "_blank",
     id: "facebook",
     className: "cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none"
   }, _Icons__WEBPACK_IMPORTED_MODULE_2__["default"].facebook), /*#__PURE__*/React.createElement("a", {
     href: "https://www.paypal.com/paypalme/NavanathBhosale",
-    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Donation', 'elementify-blocks'),
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Donation', 'wp-bess'),
     target: "_blank",
     id: "paypal",
     className: "cursor-pointer shadow-sm px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none"
@@ -4993,9 +4993,9 @@ function SupportForm() {
       formData.append(e.target[i].name, e.target[i].value);
     }
     formData.append('action', 'wp_bess_update_settings');
-    formData.append('security', elementify_blocks_settings.update_nonce);
+    formData.append('security', wp_bess_settings.update_nonce);
     apiFetch({
-      url: elementify_blocks_settings.ajax_url,
+      url: wp_bess_settings.ajax_url,
       method: 'POST',
       body: formData
     }).then(function () {
@@ -5011,35 +5011,35 @@ function SupportForm() {
     method: "POST",
     onSubmit: supportFormSubmit
   }, /*#__PURE__*/React.createElement("div", {
-    className: "elementify-blocks-supportform sm:overflow-hidden"
+    className: "wp-bess-supportform sm:overflow-hidden"
   }, /*#__PURE__*/React.createElement("div", {
     className: "px-4 py-5 bg-white space-y-6 sm:p-6"
   }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     htmlFor: "name",
     className: "block text-sm font-medium text-gray-700"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Name', 'elementify-blocks')), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Name', 'wp-bess')), /*#__PURE__*/React.createElement("div", {
     className: "mt-1"
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
     name: "name",
     id: "name",
     className: "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2",
-    placeholder: elementify_blocks_settings.wp_bess_support_settings.name
+    placeholder: wp_bess_settings.wp_bess_support_settings.name
   }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     htmlFor: "name",
     className: "block text-sm font-medium text-gray-700"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Email', 'elementify-blocks')), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Email', 'wp-bess')), /*#__PURE__*/React.createElement("div", {
     className: "mt-1"
   }, /*#__PURE__*/React.createElement("input", {
     type: "email",
     name: "name",
     id: "name",
     className: "focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300 py-2",
-    placeholder: elementify_blocks_settings.wp_bess_support_settings.email
+    placeholder: wp_bess_settings.wp_bess_support_settings.email
   }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     htmlFor: "subject",
     className: "block text-sm font-medium text-gray-700"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Subject', 'elementify-blocks')), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Subject', 'wp-bess')), /*#__PURE__*/React.createElement("div", {
     className: "mt-1"
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
@@ -5050,7 +5050,7 @@ function SupportForm() {
   }))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
     htmlFor: "about",
     className: "block text-sm font-medium text-gray-700"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Description', 'elementify-blocks')), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Description', 'wp-bess')), /*#__PURE__*/React.createElement("div", {
     className: "mt-1"
   }, /*#__PURE__*/React.createElement("textarea", {
     id: "about",
@@ -5099,7 +5099,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableBackground() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_background),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_background),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5111,9 +5111,9 @@ function EnableBackground() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Background', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Background', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Background block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Background block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
@@ -5158,7 +5158,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableBorder() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_border),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_border),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5170,9 +5170,9 @@ function EnableBorder() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Border', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Border', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Border block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Border block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
@@ -5217,7 +5217,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableCustomCSS() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_custom_css),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_custom_css),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5229,9 +5229,9 @@ function EnableCustomCSS() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Custom CSS', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Custom CSS', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Custom CSS block specific.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Custom CSS block specific.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
@@ -5276,7 +5276,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableDisplay() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_display),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_display),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5288,14 +5288,14 @@ function EnableDisplay() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Display', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Display', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Display related block options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Display related block options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_display]",
+    name: "wp_bess_setting[enable_display]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -5335,7 +5335,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableLayoutOptions() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_layout_options),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_layout_options),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5347,14 +5347,14 @@ function EnableLayoutOptions() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Layout', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Layout', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Layout related block options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Layout related block options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_layout_options]",
+    name: "wp_bess_setting[enable_layout_options]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -5394,7 +5394,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableMotionEffects() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_motion_effects),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_motion_effects),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5406,14 +5406,14 @@ function EnableMotionEffects() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Motion Effects', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Motion Effects', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Motion Effects block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Motion Effects block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_motion_effects]",
+    name: "wp_bess_setting[enable_motion_effects]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -5453,7 +5453,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableSpacings() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_spacings),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_spacings),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5465,14 +5465,14 @@ function EnableSpacings() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Spacings', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Spacings', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Spacings block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Spacings block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_spacings]",
+    name: "wp_bess_setting[enable_spacings]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -5512,7 +5512,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableTransform() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_transform),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_transform),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5524,14 +5524,14 @@ function EnableTransform() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Transforms', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Transforms', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Transforms block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Transforms block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_transform]",
+    name: "wp_bess_setting[enable_transform]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -5571,7 +5571,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EnableWidth() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elementify_blocks_settings.enable_width),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(wp_bess_settings.wp_bess_setting.enable_width),
     _useState2 = _slicedToArray(_useState, 2),
     enable = _useState2[0],
     setEnable = _useState2[1];
@@ -5583,14 +5583,14 @@ function EnableWidth() {
     className: "ml-4 mt-4"
   }, /*#__PURE__*/React.createElement("h3", {
     className: "text-lg leading-6 font-medium text-gray-900"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Width', 'elementify-blocks')), /*#__PURE__*/React.createElement("p", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Width', 'wp-bess')), /*#__PURE__*/React.createElement("p", {
     className: "mt-1 text-sm text-gray-500"
-  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Width block related options.', 'elementify-blocks'))), /*#__PURE__*/React.createElement("div", {
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enable Width block related options.', 'wp-bess'))), /*#__PURE__*/React.createElement("div", {
     className: "ml-4 mt-4 flex-shrink-0"
   }, /*#__PURE__*/React.createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     checked: enable,
     value: enable,
-    name: "elementify_blocks_setting[enable_width]",
+    name: "wp_bess_setting[enable_width]",
     onChange: setEnable,
     className: (0,_Helper__WEBPACK_IMPORTED_MODULE_2__["default"])(enable ? 'bg-wpcolor' : 'bg-gray-200', 'relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-wpcolor')
   }, /*#__PURE__*/React.createElement("span", {
@@ -9293,7 +9293,7 @@ __webpack_require__.r(__webpack_exports__);
 /* Main Component */
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default().render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_EntryContent__WEBPACK_IMPORTED_MODULE_3__["default"], null)), document.getElementById('elementify-blocks-settings'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default().render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_EntryContent__WEBPACK_IMPORTED_MODULE_3__["default"], null)), document.getElementById('wp-bess-settings'));
 })();
 
 /******/ })()

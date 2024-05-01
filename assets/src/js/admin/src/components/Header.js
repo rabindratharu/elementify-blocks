@@ -11,13 +11,13 @@ function Header() {
 	const [ tab, setTab ] = useState( 'main' );
 	const navigation = [
 		{
-			name: __( 'Settings', 'elementify-blocks' ),
-			slug: 'elementify_blocks_settings',
+			name: __( 'Settings', 'wp-bess' ),
+			slug: 'wp_bess_settings',
 			path: '',
 		},
 		{
-			name: __( 'Support', 'elementify-blocks' ),
-			slug: 'elementify_blocks_settings',
+			name: __( 'Support', 'wp-bess' ),
+			slug: 'wp_bess_settings',
 			path: 'support',
 		},
 	];
@@ -33,7 +33,7 @@ function Header() {
 			<div className="flex justify-between items-center flex-wrap sm:flex-nowrap">
 				<h2 className="text-lg leading-6 font-medium text-gray-500">
 					<span className="inline-block align-middle mr-2">{ Icons.wordpress }</span>
-					<span className="align-middle"> { __( 'Block Essentials', 'elementify-blocks' ) } </span>
+					<span className="align-middle"> { __( 'Block Essentials', 'wp-bess' ) } </span>
 				</h2>
 				<div className="py-2 px-2 sm:px-6 lg:py-2 lg:px-0 lg:col-span-3">
 					<nav className="flex">
@@ -48,8 +48,8 @@ function Header() {
 								} }
 								className={ classNames(
 									activePage === menu.slug && activePath === menu.path
-										? 'bg-gray-50 text-wpcolor fill-wpcolor elementify-blocks-menu--active'
-										: 'text-gray-900 fill-gray-900 hover:text-gray-900 hover:bg-gray-50 elementify-blocks-menu',
+										? 'bg-gray-50 text-wpcolor fill-wpcolor wp-bess-menu--active'
+										: 'text-gray-900 fill-gray-900 hover:text-gray-900 hover:bg-gray-50 wp-bess-menu',
 									'group cursor-pointer rounded-md px-3 py-2 flex items-center text-sm font-medium mx-1'
 								) }
 							>
@@ -59,19 +59,19 @@ function Header() {
 					</nav>
 				</div>
 				<div className="relative flex rounded-md shadow-sm">
-						<a href="https://github.com/imnavanath" title={ __( 'GitHub Profile', 'elementify-blocks' ) } target="_blank" id="github" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+						<a href="https://github.com/imnavanath" title={ __( 'GitHub Profile', 'wp-bess' ) } target="_blank" id="github" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
 							{ Icons.github }
 						</a>
-						<a href="https://www.linkedin.com/in/navanath-bhosale" title={ __( 'Connect via LinkedIn', 'elementify-blocks' ) } target="_blank" id="linkedin" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+						<a href="https://www.linkedin.com/in/navanath-bhosale" title={ __( 'Connect via LinkedIn', 'wp-bess' ) } target="_blank" id="linkedin" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
 							{ Icons.linkedin }
 						</a>
-						<a href="mailto:navanath.bhosale95@gmail.com" title={ __( 'Email me', 'elementify-blocks' ) } target="_blank" id="email" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+						<a href="mailto:navanath.bhosale95@gmail.com" title={ __( 'Email me', 'wp-bess' ) } target="_blank" id="email" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
 							{ Icons.email }
 						</a>
-						<a href="https://www.facebook.com/navnath.bhosale.3/" title={ __( 'Connect via Facebook', 'elementify-blocks' ) } target="_blank" id="facebook" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+						<a href="https://www.facebook.com/navnath.bhosale.3/" title={ __( 'Connect via Facebook', 'wp-bess' ) } target="_blank" id="facebook" className="cursor-pointer shadow-sm mr-1.5 px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
 							{ Icons.facebook }
 						</a>
-						<a href="https://www.paypal.com/paypalme/NavanathBhosale" title={ __( 'Donation', 'elementify-blocks' ) } target="_blank" id="paypal" className="cursor-pointer shadow-sm px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
+						<a href="https://www.paypal.com/paypalme/NavanathBhosale" title={ __( 'Donation', 'wp-bess' ) } target="_blank" id="paypal" className="cursor-pointer shadow-sm px-1.5 py-1.5 text-wpcolor hover:text-gray-900 rounded-full hover:bg-gray-50 bg-gray-100 flex items-center justify-center focus:outline-none">
 							{ Icons.paypal }
 						</a>
 				</div>

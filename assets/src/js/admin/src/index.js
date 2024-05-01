@@ -10,5 +10,5 @@ ReactDOM.render(
 	<BrowserRouter>
 		<EntryContent />
 	</BrowserRouter>,
-	document.getElementById( 'elementify-blocks-settings' )
+	document.getElementById( 'wp-bess-settings' )
 );
