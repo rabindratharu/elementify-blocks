@@ -1,35 +1,63 @@
 <?php
 /**
- * Plugin Name:       Elementify Blocks
- * Description:       Ultimate & Essentials block settings for every WordPress block.
- * Requires at least: 5.8
- * Requires PHP:      7.0
- * Version:           1.0.0
- * Author:            Navanath Bhosale
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wp-bess
+ * Elementify Blocks Plugin
  *
- * @package           WP_Block_Essentials
+ * @package           Elementify_Blocks
+ * @author            Elementify Themes
+ * @license           GPL-2.0-or-later
+ *
+ * @wordpress-plugin
+ * Plugin Name:       Elementify Blocks
+ * Plugin URI:        https://github.com/elemetnifythemes/elementify-blocks
+ * Description:       Gutenberg blocks that will help you build amazing pages with the new WordPress Gutenberg editor.
+ * Version:           1.0.0
+ * Requires at least: 6.0
+ * Requires PHP:      7.4
+ * Author:            Elementify Themes
+ * Author URI:        https://github.com/elemetnifythemes
+ * License:           GPL v2 or later
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       elementify-blocks
+ * Domain Path:       /languages
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+namespace Elementify_Blocks;
+
+defined( 'ABSPATH' ) || exit;
 
 /**
- * Set constants
+ * The path to the plugin directory.
+ * With trailing slash.
  */
-define( 'WP_BESS_FILE', __FILE__ );
-define( 'WP_BESS_BASE', plugin_basename( WP_BESS_FILE ) );
-define( 'WP_BESS_DIR', plugin_dir_path( WP_BESS_FILE ) );
-define( 'WP_BESS_URL', plugins_url( '/', WP_BESS_FILE ) );
-define( 'WP_BESS_VER', '1.0.0' );
-define( 'WP_BESS_SETTINGS', 'wp_bess_setting' );
-define( 'WP_BESS_SUPPORT_SETTINGS', 'wp_bess_support_settings' );
+define( 'ELEMENTIFY_PATH', plugin_dir_path( __FILE__ ) );
 
-// Define things
-define( 'ESSENTIAL_BLOCKS_FILE', __FILE__ );
+/**
+ * The path to the plugin `/assets/build/` directory.
+ * With trailing slash.
+ */
+define( 'ELEMENTIFY_BUILD_PATH', ELEMENTIFY_PATH . 'assets/build/' );
 
-require_once __DIR__ . '/autoload.php';
+/**
+ * The path to the plugin `/inc/` directory.
+ * With trailing slash.
+ */
+define( 'ELEMENTIFY_INC_PATH', ELEMENTIFY_PATH . 'inc/' );
 
+/**
+ * The URI to the plugin directory.
+ * With trailing slash.
+ */
+define( 'ELEMENTIFY_PATH_URI', plugin_dir_url( __FILE__ ) );
+
+/**
+ * The URI to the plugin `/assets/build/` directory.
+ * With trailing slash.
+ */
+define( 'ELEMENTIFY_BUILD_PATH_URI', ELEMENTIFY_PATH_URI . 'assets/build/' );
+
+require_once ELEMENTIFY_INC_PATH . 'autoloader.php';
+
+function elementify_blocks_get_instance() {
+	\Elementify_Blocks\Inc\Core::get_instance();
+}
+elementify_blocks_get_instance();
