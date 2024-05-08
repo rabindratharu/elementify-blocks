@@ -5,6 +5,8 @@ const path = require( 'path' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 // JS Directory path.
 const SRC_DIR 	= path.resolve( __dirname, 'assets/src' );
@@ -22,6 +24,8 @@ const output = {
 defaultConfig.plugins = defaultConfig.plugins.filter((plugin) => {
 	return !(plugin instanceof MiniCssExtractPlugin);
 });
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
 	...defaultConfig,
@@ -45,6 +49,16 @@ module.exports = {
 			},
 		],
 	},
+
+	optimization: {
+		minimize: isProduction,
+		minimizer: [
+			'...',
+			new TerserPlugin(),
+			new CssMinimizerPlugin()
+		]
+	},
+	
 	plugins: [
 		...defaultConfig.plugins,
 		new MiniCssExtractPlugin({
