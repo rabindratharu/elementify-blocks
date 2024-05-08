@@ -15,7 +15,7 @@ const entry = {
 };
 const output = {
 	path: BUILD_DIR,
-	filename: 'js/[name].js'
+	filename: '[name]/index.js'
 };
 
 //Remove default MiniCssExtractPlugin settings
@@ -33,13 +33,22 @@ module.exports = {
 	module: {
 		...defaultConfig.module,
 		rules: [
-			...defaultConfig.module.rules,
+			{
+				test: /\.(sc|sa|c)ss$/,
+				exclude: /node_modules/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+					'sass-loader',
+				]
+			},
 		],
 	},
 	plugins: [
 		...defaultConfig.plugins,
 		new MiniCssExtractPlugin({
-			filename: "css/[name].css",
+			filename: "[name]/index.css",
 			ignoreOrder: false,
 		}),
 		new RemoveEmptyScriptsPlugin(),
