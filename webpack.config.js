@@ -49,7 +49,6 @@ module.exports = {
 		...defaultConfig.plugins,
 		new MiniCssExtractPlugin({
 			filename: "[name]/index.css",
-			ignoreOrder: false,
 		}),
 		new RemoveEmptyScriptsPlugin(),
 	],
