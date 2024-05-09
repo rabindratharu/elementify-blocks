@@ -40,6 +40,11 @@ class Admin {
 		 */
 		add_action( 'admin_menu', [ $this, 'add_admin_menu' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+
+		/*Register Settings*/
+		add_action( 'rest_api_init', [ $this, 'register_settings' ] );
+		add_action( 'admin_init', [ $this, 'register_settings' ] );
+        
 	}
 
 	/**
@@ -119,48 +124,112 @@ class Admin {
 	 */
 	public function enqueue_admin_assets() {
 
+		/**
+         * This function is provided for demonstration purposes only.
+         *
+         * An instance of this class should be passed to the run() function
+         * defined in Wp_Custom_Gutenberg_Blocks_Boilerplate_Loader as all of the hooks are defined
+         * in that particular class.
+         *
+         * The Wp_Custom_Gutenberg_Blocks_Boilerplate_Loader will then create the relationship
+         * between the defined hooks and the functions defined in this
+         * class.
+         */
+
+		// $screen	= get_current_screen();
+		// $admin_scripts_bases = array( 'toplevel_page_' . ELEMENTIFY_BLOCKS_NAME );
+		// if ( ! ( isset( $screen->base ) && in_array( $screen->base, $admin_scripts_bases ) ) ) {
+		// 	return;
+		// }
+
 		wp_enqueue_style(
 			'elementify-blocks-admin-css',
-			ELEMENTIFY_BLOCKS_BUILD_PATH_URI . '/admin/index.css',
+			untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH_URI) . '/admin/index.css',
 			[],
-			filemtime( ELEMENTIFY_BLOCKS_BUILD_PATH . '/admin/index.css' ),
+			filemtime( untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH) . '/admin/index.css' ),
 			'all'
 		);
 
+		$asset_config_file = sprintf( '%s/admin/index.asset.php', untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH) );
 
-		// $asset_config_file = sprintf( '%s/admin/index.assets.php', untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH) );
+		if ( ! file_exists( $asset_config_file ) ) {
+			return;
+		}
 
-		// if ( ! file_exists( $asset_config_file ) ) {
-		// 	return;
-		// }
+		$asset_config = include_once $asset_config_file;
+		$dependencies = ( ! empty( $asset_config['dependencies'] ) ) ? $asset_config['dependencies'] : [];
+		$version      = ( ! empty( $asset_config['version'] ) ) ? $asset_config['version'] : filemtime( $asset_config_file );
 
-		// $asset_config = include_once $asset_config_file;
-
-		// if ( empty( $asset_config['js/editor.js'] ) ) {
-		// 	return;
-		// }
-
-		// $editor_asset    = $asset_config['js/editor.js'];
-		// $js_dependencies = ( ! empty( $editor_asset['dependencies'] ) ) ? $editor_asset['dependencies'] : [];
-		// $version         = ( ! empty( $editor_asset['version'] ) ) ? $editor_asset['version'] : filemtime( $asset_config_file );
-
-		// // Theme Gutenberg blocks JS.
-		// if ( is_admin() ) {
-		// 	wp_enqueue_script(
-		// 		'af-blocks-js',
-		// 		AQUILA_FEATURES_PLUGIN_BUILD_URL . '/js/editor.js',
-		// 		$js_dependencies,
-		// 		$version,
-		// 		true
-		// 	);
-		// }
-
-		// // Theme Gutenberg blocks CSS.
-		// $css_dependencies = [
-		// 	'wp-block-library-theme',
-		// 	'wp-block-library',
-		// ];
-
+		wp_enqueue_script(
+			'elementify-blocks-admin-js',
+			untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH_URI) . '/admin/index.js',
+			$dependencies,
+			$version,
+			true
+		);
+		wp_localize_script(
+			'elementify-blocks-admin-js',
+			'wpCustomGutenbergBlocksBoilerplateBuild',
+			[
+				'version' => $version,
+				'root_id' => ELEMENTIFY_BLOCKS_NAME,
+			]
+		);
 		
 	}
+
+	/**
+     * Register settings.
+     * Common callback function of rest_api_init and admin_init
+     * Schema: http://json-schema.org/draft-04/schema#
+     *
+     * Add your own settings fields here
+     *
+     * @since 1.0.0
+     *
+     * @param null.
+     * @return void
+     */
+    public function register_settings() {
+        $defaults = Helper::get_defaults();
+        register_setting(
+            'wp_custom_gutenberg_blocks_boilerplate_settings_group',
+            'wp_custom_gutenberg_blocks_boilerplate_options',
+            array(
+                'type'         => 'object',
+                'default'      => $defaults,
+                'show_in_rest' => array(
+                    'schema' => array(
+                        'type'       => 'object',
+                        'properties' => array(
+                            /*===Settings===*/
+                            /*Settings -> General*/
+                            'setting_1' => array(
+                                'type' => 'string',
+                                'default' => $defaults['setting_1']
+                            ),
+                            'setting_2' => array(
+                                'type' => 'string',
+                                'default' => $defaults['setting_2']
+                            ),
+                            /*Settings -> Advanced*/
+                            'setting_3' => array(
+                                'type' => 'boolean',
+                                'default' => $defaults['setting_3']
+                            ),
+                            'setting_4' => array(
+                                'type' => 'boolean',
+                                'default' => $defaults['setting_4']
+                            ),
+                            'setting_5' => array(
+                                'type' => 'string',
+                                'default' => $defaults['setting_5'],
+                                'sanitize_callback' => 'sanitize_key',
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
+    }
 }

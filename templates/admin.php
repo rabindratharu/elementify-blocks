@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <div class="container mx-auto pr-4 py-8">
 	<div class="elementify-blocks-admin-page-wrapper">
-		<div id="elementify-blocks-settings">
+		<div id="elementify-blocks">
 			<nav class="bg-slate-50 rounded-sm">
 			<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 				<div class="relative flex h-16 items-center justify-between">

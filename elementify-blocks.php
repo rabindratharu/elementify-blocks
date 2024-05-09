@@ -30,9 +30,9 @@ defined( 'ABSPATH' ) || exit;
  */
 define( 'ELEMENTIFY_BLOCKS_NAME', 'elementify-blocks' );
 define( 'ELEMENTIFY_BLOCKS_PATH', plugin_dir_path( __FILE__ ) );
-define( 'ELEMENTIFY_BLOCKS_BUILD_PATH', ELEMENTIFY_BLOCKS_PATH . 'assets/build/' );
-define( 'ELEMENTIFY_BLOCKS_INC_PATH', ELEMENTIFY_BLOCKS_PATH . 'inc/' );
 define( 'ELEMENTIFY_BLOCKS_PATH_URI', plugin_dir_url( __FILE__ ) );
+define( 'ELEMENTIFY_BLOCKS_INC_PATH', ELEMENTIFY_BLOCKS_PATH . 'inc/' );
+define( 'ELEMENTIFY_BLOCKS_BUILD_PATH', ELEMENTIFY_BLOCKS_PATH . 'assets/build/' );
 define( 'ELEMENTIFY_BLOCKS_BUILD_PATH_URI', ELEMENTIFY_BLOCKS_PATH_URI . 'assets/build/' );
 
 require_once ELEMENTIFY_BLOCKS_INC_PATH . 'autoloader.php';

@@ -39,6 +39,12 @@ module.exports = {
 		...defaultConfig.module,
 		rules: [
 			{
+				test: /\.js$/,
+				include: [ SRC_DIR ],
+				exclude: /node_modules/,
+				use: 'babel-loader'
+			},
+			{
 				test: /\.(sc|sa|c)ss$/,
 				exclude: /node_modules/,
 				use: [
