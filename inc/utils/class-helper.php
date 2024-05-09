@@ -26,7 +26,7 @@ class Helper {
 	 */
 	public static function get_template( string $template, array $variables = [], bool $echo = false ) {
 
-		$template_file = sprintf( '%1$s/templates/%2$s.php', untrailingslashit( ELEMENTIFY_BLOCKS_PATH ), $template );
+		$template_file = sprintf( '%1$s/templates/%2$s.php', untrailingslashit(ELEMENTIFY_BLOCKS_PATH), $template );
 	
 		if ( ! file_exists( $template_file ) ) {
 			return '';

@@ -9,6 +9,7 @@
 namespace Elementify_Blocks\Inc;
 
 use Elementify_Blocks\Inc\Traits\Singleton;
+use Elementify_Blocks\Inc\Utils\Helper;
 
 /**
  * Admin class.
@@ -38,13 +39,7 @@ class Admin {
 		 * Actions.
 		 */
 		add_action( 'admin_menu', [ $this, 'add_admin_menu' ] );
-		// add_action( 'wp_enqueue_scripts', [ $this, 'register_styles' ] );
-		// add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ] );
-		// /**
-		//  * The 'enqueue_block_assets' hook includes styles and scripts both in editor and frontend,
-		//  * except when is_admin() is used to include them conditionally
-		//  */
-		// add_action( 'enqueue_block_assets', [ $this, 'enqueue_editor_assets' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
 	}
 
 	/**
@@ -116,8 +111,56 @@ class Admin {
 	 * @since 1.0.0
 	 */
 	public function render_elementify_blocks() {
-		?>
-			<div class="wp-bess-settings" id="wp-bess-settings">hello</div>
-		<?php
+		Helper::get_template( 'admin',[], true );
+	}
+
+	/**
+	 * Enqueue Admin Scripts
+	 */
+	public function enqueue_admin_assets() {
+
+		wp_enqueue_style(
+			'elementify-blocks-admin-css',
+			ELEMENTIFY_BLOCKS_BUILD_PATH_URI . '/admin/index.css',
+			[],
+			filemtime( ELEMENTIFY_BLOCKS_BUILD_PATH . '/admin/index.css' ),
+			'all'
+		);
+
+
+		// $asset_config_file = sprintf( '%s/admin/index.assets.php', untrailingslashit(ELEMENTIFY_BLOCKS_BUILD_PATH) );
+
+		// if ( ! file_exists( $asset_config_file ) ) {
+		// 	return;
+		// }
+
+		// $asset_config = include_once $asset_config_file;
+
+		// if ( empty( $asset_config['js/editor.js'] ) ) {
+		// 	return;
+		// }
+
+		// $editor_asset    = $asset_config['js/editor.js'];
+		// $js_dependencies = ( ! empty( $editor_asset['dependencies'] ) ) ? $editor_asset['dependencies'] : [];
+		// $version         = ( ! empty( $editor_asset['version'] ) ) ? $editor_asset['version'] : filemtime( $asset_config_file );
+
+		// // Theme Gutenberg blocks JS.
+		// if ( is_admin() ) {
+		// 	wp_enqueue_script(
+		// 		'af-blocks-js',
+		// 		AQUILA_FEATURES_PLUGIN_BUILD_URL . '/js/editor.js',
+		// 		$js_dependencies,
+		// 		$version,
+		// 		true
+		// 	);
+		// }
+
+		// // Theme Gutenberg blocks CSS.
+		// $css_dependencies = [
+		// 	'wp-block-library-theme',
+		// 	'wp-block-library',
+		// ];
+
+		
 	}
 }
