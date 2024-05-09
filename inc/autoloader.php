@@ -6,7 +6,7 @@
  * @since 0.0.1
  */
 
-namespace Elementify_Blocks\Inc;
+namespace Elementify_Blocks;
 
 /**
  * Auto loader function.
@@ -15,8 +15,8 @@ namespace Elementify_Blocks\Inc;
  *
  * @return void
  */
-function autoloader( $resource = '' ) {
-	$resource_path  = false;
+spl_autoload_register(function ($resource = '') {
+    $resource_path  = false;
 	$namespace_root = 'Elementify_Blocks\\';
 	$resource       = trim( $resource, '\\' );
 
@@ -52,6 +52,11 @@ function autoloader( $resource = '' ) {
 				$file_name = sprintf( 'trait-%s', trim( strtolower( $path[2] ) ) );
 				break;
 
+			case 'utils':
+				$directory = 'utils';
+				$file_name = sprintf( 'class-%s', trim( strtolower( $path[2] ) ) );
+				break;
+
 			case 'widgets':
 			case 'blocks': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 				/**
@@ -82,6 +87,5 @@ function autoloader( $resource = '' ) {
 		// We already making sure that file is exists and valid.
 		require_once( $resource_path ); // phpcs:ignore
 	}
+});
 
-}
-spl_autoload_register( '\Elementify_Blocks\Inc\autoloader' );
