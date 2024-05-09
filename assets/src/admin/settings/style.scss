@@ -1,0 +1,169 @@
+/*--------------------------------------------------------------
+# Welcome Landing Page
+--------------------------------------------------------------*/
+.blockwheels-section{
+	padding: 0;
+    margin: 5px 15px 2px;
+	.blockwheels-notice-header {
+		background: #deeff7;
+		padding: 60px 0;
+		.blockwheels-logo img {
+			width: 100%;
+		}
+		h2 {
+			font-size: 40px;
+			font-weight: bold;
+			margin: 0;
+			line-height: normal;
+			color: #091e42;
+		}
+		h4 {
+			font-size: 20px;
+    		margin-top: 10px
+		}
+		.blockwheels-group-buttons {
+			margin-top: 30px;
+			gap: 15px;
+			.btn {
+				text-decoration: none;
+				padding: 10px 20px;
+				border: 1px solid #ddd;
+				background-color: #ddd;
+				.dashicons {
+					margin-right: 10px;
+				}
+			}
+			.btn-primary {
+				border-color: #275cf6;
+				background-color: #275cf6;
+				color: #fff;
+				padding: 20px 40px;
+				border-radius: 60px;
+				font-size: 14px;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				font-weight: bold;
+			}
+			.btn-primary:hover {
+				border-color: #174cdf;
+				background-color: #174cdf;
+				color: #fff;
+			}
+			.btn-primary.btn-pro {
+				background: #7CD443;
+				border-color: #7CD443;
+			}
+			.btn-primary.btn-pro:hover {
+				background: #174cdf;
+				border-color: #174cdf;
+			}
+		}
+	}
+	.blockwheels-content {
+		grid-template-columns: 1fr 260px;
+		gap: 3em;
+		margin-top: 15px;
+		.main-panel{
+			padding: 25px;
+			background: #fff;
+			.blocks-item-wrapper {
+				gap: 1rem;
+				.blocks-item {
+					border: 1px solid #e2e8f0;
+					padding: 20px;
+					border-radius: 4px;
+					position: relative;
+					&:after{
+						position: absolute;
+						display: block;
+						content: "+";
+						top: 7px;
+						right: 10px;
+						color: #fff;
+						height: 20px;
+						width: 20px;
+						text-align: center;
+						font-size: 26px;
+					}
+					&::before{
+						position: absolute;
+						display: block;
+						content: "";
+						height: 44px;
+						width: 44px;
+						top: 0;
+						right: 0;
+						border-radius: 0 0 0 20px;
+						/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#da6895+0,f2b422+100 */
+						background: linear-gradient(135deg,  #da6895 0%,#f2b422 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+					}
+				}
+			}
+		}
+		.side-panel {
+			gap: 1rem;
+			.components-panel {
+				background: #fff;
+				border: 1px solid #f0f0f0;
+			}
+			.pro-section.components-panel {
+				border-color: #005ab3;
+				border-radius: 3px;
+			}
+		}
+	}
+	.blockwheels-navigation{
+		background: #fff;
+		margin-bottom: 15px;
+		ul{
+			margin: 0;
+			li{
+				margin: 0;
+				a{
+					padding: 15px 20px;
+					display: inline-block;
+					text-decoration: none;
+					color: #1e1e1e;
+					&.blockwheels-nav-active{
+						background: #EDF1F8;
+						box-shadow: inset 0px -2px 5px 2px rgba(0, 0, 0, 0.05);
+					}
+					&:focus{
+						box-shadow: inset 0px -2px 5px 2px rgba(0, 0, 0, 0.05);
+					}
+				}
+			}
+		}
+	}
+	.blockwheels-main{
+		background: #fff;
+		margin-bottom: 15px;
+	}
+	.blockwheels-footer{
+		background: #fff;
+		padding: 10px;
+		.components-button{
+			&.is-primary:disabled{
+				background: #0078B3 !important;
+				color: #fff !important;
+				opacity: 0.7;
+			}
+		}
+	}
+	.blockwheels-header-sticky {
+		position: relative;
+		.components-popover__content {
+			width: 100%;
+			max-height: 80px !important;
+		}
+		.components-popover {
+			min-width: 300px;
+			right: 0;
+			left: auto !important;
+			top: -40px !important;
+		}
+		.components-notice__content p {
+			margin: 0;
+		}
+	}
+}

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = ({to, title}) => {
 
-    let activeClassName = "wp-custom-gutenberg-blocks-boilerplate-nav-active";
+    let activeClassName = "blockwheels-nav-active";
 
     return (
         <li>

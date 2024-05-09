@@ -14,8 +14,8 @@ const SettingsReducer = (state, action) => {
             newState.isPending = false;
             newState.canSave = false;
 
-            if( typeof action.payload.fetchedSettings.wp_custom_gutenberg_blocks_boilerplate_options_fetch_settings_errors !== 'undefined'){
-                newState.notice = __('An error occurred.','wp-custom-gutenberg-blocks-boilerplate');
+            if( typeof action.payload.fetchedSettings.blockwheels_options_fetch_settings_errors !== 'undefined'){
+                newState.notice = __('An error occurred.','blockwheels');
                 newState.hasError = true;
             }
             break;
@@ -30,11 +30,11 @@ const SettingsReducer = (state, action) => {
             newState.isPending = false;
 
             let canSave = false,
-                notice = __('Saved Successfully.','wp-custom-gutenberg-blocks-boilerplate'),
+                notice = __('Saved Successfully.','blockwheels'),
                 hasError = false;
-            if( typeof action.payload.fetchedSettings.wp_custom_gutenberg_blocks_boilerplate_options_update_settings_errors !== 'undefined'){
+            if( typeof action.payload.fetchedSettings.blockwheels_options_update_settings_errors !== 'undefined'){
                 canSave = true;
-                notice = __('An error occurred.','wp-custom-gutenberg-blocks-boilerplate');
+                notice = __('An error occurred.','blockwheels');
                 hasError = true;
             }
 

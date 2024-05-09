@@ -88,4 +88,3 @@ spl_autoload_register(function ($resource = '') {
 		require_once( $resource_path ); // phpcs:ignore
 	}
 });
-

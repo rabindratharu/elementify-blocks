@@ -14,11 +14,11 @@ export const fetchSettings = async () => {
     } catch (error) {
         console.log('fetchSettings Errors:', error);
         return {
-            wp_custom_gutenberg_blocks_boilerplate_options_fetch_settings_errors : true
+            blockwheels_options_fetch_settings_errors : true
         }
     }
-    if( options.wp_custom_gutenberg_blocks_boilerplate_options){
-        return options.wp_custom_gutenberg_blocks_boilerplate_options;
+    if( options.blockwheels_options){
+        return options.blockwheels_options;
     }
     return options;
 };
@@ -28,7 +28,7 @@ export const updateSettings = async (data) => {
         options ={};
 
     let queryArgs = {
-        wp_custom_gutenberg_blocks_boilerplate_options : data
+        blockwheels_options : data
     }
 
     path = addQueryArgs(path, queryArgs);
@@ -41,11 +41,11 @@ export const updateSettings = async (data) => {
     } catch (error) {
         console.log('updateSettings Errors:', error);
         return {
-            wp_custom_gutenberg_blocks_boilerplate_options_update_settings_errors : true
+            blockwheels_options_update_settings_errors : true
         }
     }
-    if( options.wp_custom_gutenberg_blocks_boilerplate_options){
-        return options.wp_custom_gutenberg_blocks_boilerplate_options;
+    if( options.blockwheels_options){
+        return options.blockwheels_options;
     }
     return options;
 };

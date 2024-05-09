@@ -44,7 +44,7 @@ class Admin {
 		/*Register Settings*/
 		add_action( 'rest_api_init', [ $this, 'register_settings' ] );
 		add_action( 'admin_init', [ $this, 'register_settings' ] );
-        
+        add_action( 'register_setting', [ $this, 'setting_schema' ], 10, 3 );        
 	}
 
 	/**
@@ -169,7 +169,7 @@ class Admin {
 		);
 		wp_localize_script(
 			'elementify-blocks-admin-js',
-			'wpCustomGutenbergBlocksBoilerplateBuild',
+			'blockwheelsBlocksBuild',
 			[
 				'version' => $version,
 				'root_id' => ELEMENTIFY_BLOCKS_NAME,
@@ -193,38 +193,66 @@ class Admin {
     public function register_settings() {
         $defaults = Helper::get_defaults();
         register_setting(
-            'wp_custom_gutenberg_blocks_boilerplate_settings_group',
-            'wp_custom_gutenberg_blocks_boilerplate_options',
+            'blockwheels_settings_group',
+            'blockwheels_options',
             array(
-                'type'         => 'object',
-                'default'      => $defaults,
-                'show_in_rest' => array(
-                    'schema' => array(
+                'type'          => 'object',
+                'default'       => $defaults,
+                'show_in_rest'  => array(
+                    'schema'    => array(
                         'type'       => 'object',
                         'properties' => array(
-                            /*===Settings===*/
-                            /*Settings -> General*/
-                            'setting_1' => array(
-                                'type' => 'string',
-                                'default' => $defaults['setting_1']
+                            /*===General===*/
+                            'post_enable'           => array(
+                                'type'              => 'boolean',
+                                'default'           => $defaults['post_enable'],
+                                'sanitize_callback' => array( $this, 'sanitize_boolean' ),
                             ),
-                            'setting_2' => array(
-                                'type' => 'string',
-                                'default' => $defaults['setting_2']
+                            'page_enable'           => array(
+                                'type'              => 'boolean',
+                                'default'           => $defaults['page_enable'],
+                                'sanitize_callback' => array( $this, 'sanitize_boolean' ),
                             ),
-                            /*Settings -> Advanced*/
-                            'setting_3' => array(
-                                'type' => 'boolean',
-                                'default' => $defaults['setting_3']
+                            'map_key'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['map_key'],
+                                'sanitize_callback' => 'sanitize_text_field',
                             ),
-                            'setting_4' => array(
-                                'type' => 'boolean',
-                                'default' => $defaults['setting_4']
-                            ),
-                            'setting_5' => array(
-                                'type' => 'string',
-                                'default' => $defaults['setting_5'],
+                            /*===Design===*/
+                            'heading_typo'          => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['heading_typo'],
                                 'sanitize_callback' => 'sanitize_key',
+                            ),
+                            'base_type'             => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['base_type'],
+                                'sanitize_callback' => 'sanitize_key',
+                            ),
+                            'color_1'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['color_1'],
+                                'sanitize_callback' => array( $this, 'sanitize_color' ),
+                            ),
+                            'color_2'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['color_2'],
+                                'sanitize_callback' => array( $this, 'sanitize_color' ),
+                            ),
+                            'color_3'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['color_3'],
+                                'sanitize_callback' => array( $this, 'sanitize_color' ),
+                            ),
+                            'color_4'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['color_4'],
+                                'sanitize_callback' => array( $this, 'sanitize_color' ),
+                            ),
+                            'color_5'               => array(
+                                'type'              => 'string',
+                                'default'           => $defaults['color_5'],
+                                'sanitize_callback' => array( $this, 'sanitize_color' ),
                             ),
                         ),
                     ),
@@ -232,4 +260,61 @@ class Admin {
             )
         );
     }
+
+    /**
+	 * Prepares a value for output based off a schema array.
+     * 
+	 */
+    public function setting_schema( $option_group, $option_name, $args ) {
+        if ( $option_name === 'blockwheels_options') {
+            $options            = get_option( $option_name, $args['default'] );
+            $options_keys       = array_keys($options);
+            $schema             = $args['show_in_rest']['schema']['properties'];
+            $schema_keys        = array_keys($schema);
+            $different_keys     = array_diff($options_keys,$schema_keys);
+            if( $different_keys ){
+                foreach ( $different_keys as $key){
+                    unset($options[$key]);
+                }
+                update_option( $option_name, $options);
+            }
+        }
+    }
+
+    /**
+     * Sanitize checkbox
+     *
+     * @link            https://wpwheels.com/
+     * @since           1.0.0
+     *
+     * @param string    $checked boolean value
+     * @return boolean
+     */
+    public function sanitize_boolean( $checked ) {
+        return ( ( isset( $checked ) && true == $checked ) ? true : false );
+    }
+
+    /**
+	 * Sanitize color
+     *
+     * @link            https://wpwheels.com/
+     * @since           1.0.0
+	 *
+	 * @param string $color Input from the term colorpicker field
+	 * @return string
+	 */
+	public function sanitize_color( $color ) {
+
+		if ( '' === $color ) {
+			return '';
+		}
+
+		// To allow hex, rgba(), and var() values or custom values like transparent run through custom preg_replace to remove most special characters and spaces.
+		if ( strpos( $color, '#' ) === 0 ) {
+			return sanitize_hex_color( $color );
+		} else {
+			return preg_replace( '/[^A-Za-z0-9_)(\-,.]/', '', $color );
+		}
+
+	}
 }

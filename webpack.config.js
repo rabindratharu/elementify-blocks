@@ -13,7 +13,7 @@ const SRC_DIR 	= path.resolve( __dirname, 'assets/src' );
 const BUILD_DIR = path.resolve( __dirname, 'assets/build' );
 
 const entry = {
-	admin: SRC_DIR + '/admin/index.js',
+	admin: SRC_DIR + '/settings.js',
 	editor: SRC_DIR + '/editor/index.js',
 };
 const output = {

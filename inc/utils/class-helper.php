@@ -58,13 +58,20 @@ class Helper {
 	 */
 	public static function get_defaults() {
 
-		return apply_filters( 'elementify_blocks_default_settings', [
-			'setting_1' => esc_html__( 'Default Setting 1', 'wp-custom-gutenberg-blocks-boilerplate' ),
-			'setting_2' => esc_html__( 'Default Setting 2', 'wp-custom-gutenberg-blocks-boilerplate' ),
-			'setting_3' => false,
-			'setting_4' => true,
-			'setting_5' => 'option-1',
-		]);
+		$default_theme_options = array(
+			'post_enable' 	=> true,
+			'page_enable' 	=> true,
+			'map_key' 		=> '',
+			'heading_typo' 	=> 'inherit',
+			'base_type' 	=> 'inherit',
+			'color_1' 		=> '#000000',
+			'color_2' 		=> '#565656',
+			'color_3' 		=> '#abb8c3',
+			'color_4' 		=> '#f9f8f8',
+			'color_5' 		=> '#ffffff'
+		);
+	
+		return apply_filters( 'blockwheels_default_options', $default_theme_options );
 	}
 
 	/**
@@ -74,20 +81,20 @@ class Helper {
 	 * @return array
 	 * @since 1.0.0
 	 */
-	public static function get_option( $option = '' ) {
-		$get_settings       = get_option( 'wp_custom_gutenberg_blocks_boilerplate_options' );
-		$default_settings	= self::get_defaults();
+	public static function get_option( $key = '' ) {
+		$options         = get_option( 'blockwheels_options' );
+		$default_options = self::get_defaults();
 
-		if ( ! empty( $option ) ) {
-			if ( isset( $get_settings[ $option ] ) ) {
-				return $get_settings[ $option ];
+		if ( ! empty( $key ) ) {
+			if ( isset( $options[ $key ] ) ) {
+				return $options[ $key ];
 			}
-			return isset( $default_settings[ $option ] ) ? $default_settings[ $option ] : false;
+			return isset( $default_options[ $key ] ) ? $default_options[ $key ] : false;
 		} else {
-			if ( ! is_array( $get_settings ) ) {
-				$get_settings = array();
+			if ( ! is_array( $options ) ) {
+				$options = array();
 			}
-			return array_merge( $default_settings, $get_settings );
+			return array_merge( $default_options, $options );
 		}
 	}
 }

@@ -1,7 +1,7 @@
 /**
  * SCSS
  */
-import './index.scss';
+import './style.scss';
 
 /*WordPress*/
 import {
@@ -14,14 +14,14 @@ import {
 } from "@wordpress/components";
 
 /*Inbuilt Context Provider*/
-import SettingsContextProvider, {SettingsContext} from './context/SettingsContext';
+import SettingsContextProvider, {SettingsContext} from '../../context/SettingsContext.js';
 
 /*Router*/
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 /*Inbuilt Components*/
 import General from "./pages/general";
-import Advanced from "./pages/advanced";
+import Design from "./pages/design";
 import Header from "./organisms/header";
 import Footer from "./organisms/footer";
 
@@ -30,22 +30,22 @@ const SettingRouters = () => {
   
     if (!Object.keys(useSettings).length) {
         return (
-            <Spinner className="wp-custom-gutenberg-blocks-boilerplate-page-loader" />
+            <Spinner className="blockwheels-page-loader" />
         )
     }
     return  (
-        <div className='wp-custom-gutenberg-blocks-boilerplate'>
+        <section className="blockwheels-section">
             <Header />
-            <main className='wp-custom-gutenberg-blocks-boilerplate-main'>
+            <main className='blockwheels-main'>
                 <Routes>
                     <Route exact path='/general' element={<General />} />
-                    <Route exact path={'/advanced'} element={<Advanced />} />
+                    <Route exact path={'/design'} element={<Design />} />
 
                     <Route path="/" element={<Navigate replace to={'/general'} />} />
                 </Routes>
             </main>
             <Footer />
-        </div>
+        </section>
     )
 }
 
@@ -60,7 +60,7 @@ const InitSettings = () => {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    if ('undefined' !== typeof document.getElementById(wpCustomGutenbergBlocksBoilerplateBuild.root_id) && null !== document.getElementById(wpCustomGutenbergBlocksBoilerplateBuild.root_id)) {
-        render(<InitSettings />, document.getElementById(wpCustomGutenbergBlocksBoilerplateBuild.root_id));
+    if ('undefined' !== typeof document.getElementById(blockwheelsBlocksBuild.root_id) && null !== document.getElementById(blockwheelsBlocksBuild.root_id)) {
+        render(<InitSettings />, document.getElementById(blockwheelsBlocksBuild.root_id));
     }
 });

@@ -3,7 +3,7 @@ import {useContext, useEffect} from "@wordpress/element";
 import {Notice, Popover} from "@wordpress/components";
 
 /*Inbuilt Context*/
-import { SettingsContext } from '../context/SettingsContext.js';
+import { SettingsContext } from '../../../context/SettingsContext.js';
 
 const SettingsNotice = () => {
     const { useNotice, useHasError, useUpdateState } = useContext(SettingsContext);
@@ -24,10 +24,10 @@ const SettingsNotice = () => {
 
     return (
         <Popover
-            className="wp-custom-gutenberg-blocks-boilerplate-popover"
+            className="blockwheels-popover"
         >
             <Notice
-                className="wp-custom-gutenberg-blocks-boilerplate-notice"
+                className="blockwheels-notice"
                 onRemove={() => removeNotice()}
                 status={useHasError?'error':'success'}
             >

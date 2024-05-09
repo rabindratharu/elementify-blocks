@@ -7,7 +7,7 @@ import {
 } from "@wordpress/components";
 
 /*Inbuilt Context*/
-import { SettingsContext } from '../context/SettingsContext';
+import { SettingsContext } from '../../../context/SettingsContext';
 
 const SaveBtn = ({to, title}) => {
 
@@ -22,7 +22,7 @@ const SaveBtn = ({to, title}) => {
             isPrimary
             disabled={useIsPending || !useCanSave}
         >
-            {useCanSave?__( 'Save Settings','wp-custom-gutenberg-blocks-boilerplate' ):__( 'Saved','wp-custom-gutenberg-blocks-boilerplate' )}
+            {useCanSave?__( 'Save Settings','blockwheels' ):__( 'Saved','blockwheels' )}
             {useIsPending ? <Spinner /> : ''}
         </Button>
     );
