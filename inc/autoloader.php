@@ -69,7 +69,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( ELEMENTIFY_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( ELEMENTIFY_BLOCKS_PATH ), $directory, $file_name );
 
 	}
 

@@ -26,38 +26,18 @@ namespace Elementify_Blocks;
 defined( 'ABSPATH' ) || exit;
 
 /**
- * The path to the plugin directory.
- * With trailing slash.
+ * Set constants
  */
-define( 'ELEMENTIFY_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ELEMENTIFY_BLOCKS_NAME', 'elementify-blocks' );
+define( 'ELEMENTIFY_BLOCKS_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ELEMENTIFY_BLOCKS_BUILD_PATH', ELEMENTIFY_BLOCKS_PATH . 'assets/build/' );
+define( 'ELEMENTIFY_BLOCKS_INC_PATH', ELEMENTIFY_BLOCKS_PATH . 'inc/' );
+define( 'ELEMENTIFY_BLOCKS_PATH_URI', plugin_dir_url( __FILE__ ) );
+define( 'ELEMENTIFY_BLOCKS_BUILD_PATH_URI', ELEMENTIFY_BLOCKS_PATH_URI . 'assets/build/' );
 
-/**
- * The path to the plugin `/assets/build/` directory.
- * With trailing slash.
- */
-define( 'ELEMENTIFY_BUILD_PATH', ELEMENTIFY_PATH . 'assets/build/' );
-
-/**
- * The path to the plugin `/inc/` directory.
- * With trailing slash.
- */
-define( 'ELEMENTIFY_INC_PATH', ELEMENTIFY_PATH . 'inc/' );
-
-/**
- * The URI to the plugin directory.
- * With trailing slash.
- */
-define( 'ELEMENTIFY_PATH_URI', plugin_dir_url( __FILE__ ) );
-
-/**
- * The URI to the plugin `/assets/build/` directory.
- * With trailing slash.
- */
-define( 'ELEMENTIFY_BUILD_PATH_URI', ELEMENTIFY_PATH_URI . 'assets/build/' );
-
-require_once ELEMENTIFY_INC_PATH . 'autoloader.php';
+require_once ELEMENTIFY_BLOCKS_INC_PATH . 'autoloader.php';
 
 function elementify_blocks_get_instance() {
-	\Elementify_Blocks\Inc\Core::get_instance();
+	\Elementify_Blocks\Inc\Plugin::get_instance();
 }
 elementify_blocks_get_instance();

@@ -1,6 +1,6 @@
 <?php
 /**
- * Core class
+ * Plugin class
  *
  * @package Elementify_Blocks
  * @since 1.0.0
@@ -11,13 +11,13 @@ namespace Elementify_Blocks\Inc;
 use Elementify_Blocks\Inc\Traits\Singleton;
 
 /**
- * Core class.
+ * Plugin class.
  *
  * Loads the core of the plugin.
  *
  * @since 1.0.0
  */
-class Core {
+class Plugin {
 
 	use Singleton;
 
@@ -50,6 +50,8 @@ class Core {
 	 * @since 1.0.0
 	 */
 	private function admin() {
-		
+
+		// Load class.
+		Admin::get_instance();
 	}
 }
